@@ -1,104 +1,96 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>サロンのたまり場 | Salon Community</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta name="description" content="美容サロン経営者が集まるコミュニティ「サロンのたまり場」- 先進的な経営ノウハウとネットワークを共有する場所">
+    <title>サロンのたまり場 | 美容サロン経営者コミュニティ</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
-
 <body>
-    <header class="site-header">
-        <div class="container header-container">
-            <h1 class="logo">サロンのたまり場</h1>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="#home">ホーム</a></li>
-                    <li><a href="#about">コミュニティについて</a></li>
-                    <li><a href="#join">参加方法</a></li>
-                    <li><a href="#contact">お問い合わせ</a></li>
+    <!-- ヘッダー -->
+    <header class="header" id="header">
+        <div class="header-container">
+            <div class="logo">
+                <span class="logo-text">サロンのたまり場</span>
+                <span class="logo-accent"></span>
+            </div>
+            
+            <nav class="nav" id="nav">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="#features" class="nav-link">Features</a></li>
+                    <li class="nav-item"><a href="#community" class="nav-link">Community</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
             </nav>
+            
+            <button class="cta-button cta-button--header">参加する</button>
+            
+            <button class="menu-toggle" id="menuToggle" aria-label="メニュー">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </header>
 
-    <main>
-        <section id="home" class="hero">
-            <div class="container hero-container">
-                <div class="hero-content">
-                    <h2 class="hero-title">趣味でつながる、<br>心休まる大人の隠れ家。</h2>
-                    <p class="hero-description">
-                        「サロンのたまり場」は、誰もが自分らしく過ごせるコミュニティスペースです。<br>
-                        好きなことを語り合ったり、新しい趣味を見つけたり。<br>
-                        心地よい距離感で、ゆったりとした時間を楽しみませんか？
-                    </p>
-                    <a href="#join" class="btn btn-primary">コミュニティに参加する</a>
+    <!-- ヒーローセクション -->
+    <section class="hero" id="hero">
+        <div class="hero-background">
+            <div class="gradient-orb gradient-orb--1"></div>
+            <div class="gradient-orb gradient-orb--2"></div>
+            <div class="gradient-orb gradient-orb--3"></div>
+        </div>
+        
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="hero-title-line">美容サロン経営者の</span>
+                    <span class="hero-title-line hero-title-line--gradient">新しいコミュニティ</span>
+                </h1>
+                
+                <p class="hero-subtitle">
+                    先進的な経営ノウハウを共有し、<br>
+                    共に成長する仲間と出会える場所
+                </p>
+                
+                <div class="hero-cta">
+                    <button class="cta-button cta-button--primary">
+                        <span class="cta-button-text">今すぐ参加する</span>
+                        <span class="cta-button-icon">→</span>
+                    </button>
+                    <button class="cta-button cta-button--secondary">
+                        詳しく見る
+                    </button>
                 </div>
-                <div class="hero-image">
-                    <!-- Placeholder for hero image -->
-                    <div class="image-placeholder">Hero Image</div>
-                    <section id="about" class="about">
-                        <div class="container">
-                            <div class="section-header">
-                                <h2 class="section-title">サロンのたまり場とは</h2>
-                                <p class="section-subtitle">日々の喧騒を忘れ、自分らしくいられる場所。</p>
-                            </div>
-
-                            <div class="features-grid">
-                                <div class="feature-card">
-                                    <div class="feature-icon">☕</div>
-                                    <h3 class="feature-title">心地よい空間</h3>
-                                    <p class="feature-desc">カフェのようなリラックスした空間で、読書や作業、会話を自由に楽しめます。Wi-Fi・電源も完備。</p>
-                                </div>
-                                <div class="feature-card">
-                                    <div class="feature-icon">🎨</div>
-                                    <h3 class="feature-title">趣味の共有</h3>
-                                    <p class="feature-desc">読書会、映画鑑賞、ワークショップなど、様々なテーマのイベントを定期開催しています。</p>
-                                </div>
-                                <div class="feature-card">
-                                    <div class="feature-icon">🤝</div>
-                                    <h3 class="feature-title">緩やかな繋がり</h3>
-                                    <p class="feature-desc">年齢や職業に関わらず、フラットな関係で交流できるコミュニティです。</p>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-
-    </main>
-
-    <footer class="site-footer">
-        <div class="container footer-container">
-            <div class="footer-brand">
-                <h2 class="footer-logo">サロンのたまり場</h2>
-                <p>心休まる大人の隠れ家。</p>
-            </div>
-            <div class="footer-links">
-                <h3>Menu</h3>
-                <ul>
-                    <li><a href="#home">ホーム</a></li>
-                    <li><a href="#about">コミュニティについて</a></li>
-                    <li><a href="#join">参加方法</a></li>
-                    <li><a href="#contact">お問い合わせ</a></li>
-                </ul>
-            </div>
-            <div class="footer-contact">
-                <h3>Contact</h3>
-                <p>info@example.com</p>
-                <div class="social-icons">
-                    <span>Twitter</span>
-                    <span>Instagram</span>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">メンバー</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">イベント/年</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">98%</div>
+                        <div class="stat-label">満足度</div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="footer-copyright">
-            <p>&copy; 2024 サロンのたまり場. All Rights Reserved.</p>
+        
+        <div class="scroll-indicator">
+            <span class="scroll-text">Scroll</span>
+            <span class="scroll-arrow">↓</span>
         </div>
-    </footer>
+    </section>
+
+    <script src="script.js"></script>
 </body>
-
 </html>
