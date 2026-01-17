@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +9,11 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Inter:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <!-- ヘッダー -->
     <header class="header" id="header">
@@ -18,7 +22,7 @@
                 <span class="logo-text">サロンのたまり場</span>
                 <span class="logo-accent"></span>
             </div>
-            
+
             <nav class="nav" id="nav">
                 <ul class="nav-list">
                     <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
@@ -27,9 +31,9 @@
                     <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
             </nav>
-            
+
             <button class="cta-button cta-button--header">参加する</button>
-            
+
             <button class="menu-toggle" id="menuToggle" aria-label="メニュー">
                 <span></span>
                 <span></span>
@@ -45,19 +49,19 @@
             <div class="gradient-orb gradient-orb--2"></div>
             <div class="gradient-orb gradient-orb--3"></div>
         </div>
-        
+
         <div class="hero-container">
             <div class="hero-content">
                 <h1 class="hero-title">
-                    <span class="hero-title-line">美容サロン経営者の</span>
-                    <span class="hero-title-line hero-title-line--gradient">新しいコミュニティ</span>
+                    <span class="hero-title-line">サロン経営者を</span>
+                    <span class="hero-title-line hero-title-line--gradient">一人にさせないコミュニティ</span>
                 </h1>
-                
+
                 <p class="hero-subtitle">
-                    先進的な経営ノウハウを共有し、<br>
-                    共に成長する仲間と出会える場所
+                    悩みを抱え込むのではなく、みんなでシェアして解決する。<br>
+                    気軽に集まれる場所
                 </p>
-                
+
                 <div class="hero-cta">
                     <button class="cta-button cta-button--primary">
                         <span class="cta-button-text">今すぐ参加する</span>
@@ -67,7 +71,7 @@
                         詳しく見る
                     </button>
                 </div>
-                
+
                 <div class="hero-stats">
                     <div class="stat-item">
                         <div class="stat-number">500+</div>
@@ -84,13 +88,129 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="scroll-indicator">
             <span class="scroll-text">Scroll</span>
             <span class="scroll-arrow">↓</span>
         </div>
     </section>
 
+    <!-- 運営者紹介セクション -->
+    <section class="team" id="team">
+        <div class="team-header">
+            <h2 class="section-title">
+                <span class="section-title-sub">Our Team</span>
+                <span class="section-title-main">運営メンバー</span>
+            </h2>
+            <p class="section-description">
+                各分野のプロフェッショナルが、あなたのサロン経営を全力でサポートします
+            </p>
+        </div>
+
+        <div class="team-cards">
+            <!-- メンバー1: 原 和己 -->
+            <div class="team-card">
+                <div class="team-card-image">
+                    <img src="images/member-01.jpg" alt="原 和己" class="member-photo">
+                    <div class="team-card-overlay"></div>
+                    <div class="team-card-content">
+                        <span class="member-role">INNOVATOR</span>
+                        <h3 class="member-name">原 和己</h3>
+                        <p class="member-catch">1席から3年で50店舗へ。<br>高収益FCモデルの革命児</p>
+                    </div>
+                </div>
+                <div class="team-card-details">
+                    <ul class="member-authority">
+                        <li><span class="authority-highlight">次回予約率 90%</span> 以上</li>
+                        <li><span class="authority-highlight">離職率 3%</span> の組織構築</li>
+                        <li><span class="authority-highlight">平均生産性 月80万円</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- メンバー2: 山本 智大 -->
+            <div class="team-card">
+                <div class="team-card-image">
+                    <img src="images/member-02.jpg" alt="山本 智大" class="member-photo">
+                    <div class="team-card-overlay"></div>
+                    <div class="team-card-content">
+                        <span class="member-role">STRATEGIST</span>
+                        <h3 class="member-name">山本 智大</h3>
+                        <p class="member-catch">関連300店舗超。<br>年商1億の壁を突破させる「展開」のプロ</p>
+                    </div>
+                </div>
+                <div class="team-card-details">
+                    <ul class="member-authority">
+                        <li><span class="authority-highlight">全国 174店舗</span> 美容室Dears代表</li>
+                        <li><span class="authority-highlight">顧問数 150企業</span> 突破</li>
+                        <li><span class="authority-highlight">年商 2.5億円</span> 達成・売却実績</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- メンバー3: 相澤 久美子（おくみ） -->
+            <div class="team-card">
+                <div class="team-card-image">
+                    <img src="images/member-03.jpg" alt="相澤 久美子" class="member-photo">
+                    <div class="team-card-overlay"></div>
+                    <div class="team-card-content">
+                        <span class="member-role">CULTURE</span>
+                        <h3 class="member-name">おくみ</h3>
+                        <p class="member-catch">スタッフファーストで創り上げる、<br>愛される「億」サロン</p>
+                    </div>
+                </div>
+                <div class="team-card-details">
+                    <ul class="member-authority">
+                        <li><span class="authority-highlight">アイラッシュサロン</span> FC拡大中</li>
+                        <li><span class="authority-highlight">7都市</span> 新店続々OPEN</li>
+                        <li><span class="authority-highlight">女性活躍</span> 推進モデル</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- メンバー4: 門脇 幸平 -->
+            <div class="team-card">
+                <div class="team-card-image">
+                    <img src="images/member-04.jpg" alt="門脇 幸平" class="member-photo">
+                    <div class="team-card-overlay"></div>
+                    <div class="team-card-content">
+                        <span class="member-role">RECRUITING</span>
+                        <h3 class="member-name">門脇 幸平</h3>
+                        <p class="member-catch">「待ち」の求人は終わり。<br>欲しい人材が勝手に集まる採用術</p>
+                    </div>
+                </div>
+                <div class="team-card-details">
+                    <ul class="member-authority">
+                        <li><span class="authority-highlight">支援実績 500店舗</span> 以上</li>
+                        <li><span class="authority-highlight">応募 ゼロ</span> からの脱却</li>
+                        <li><span class="authority-highlight">小規模〜多店舗まで</span> 全対応</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- メンバー5: 金谷 武士（カナタ兄さん） -->
+            <div class="team-card">
+                <div class="team-card-image">
+                    <img src="images/member-05.jpg" alt="金谷 武士" class="member-photo">
+                    <div class="team-card-overlay"></div>
+                    <div class="team-card-content">
+                        <span class="member-role">AI MARKETING</span>
+                        <h3 class="member-name">金谷 武士</h3>
+                        <p class="member-catch">最速・最短。<br>AIと広告を駆使した「集客」の自動化</p>
+                    </div>
+                </div>
+                <div class="team-card-details">
+                    <ul class="member-authority">
+                        <li><span class="authority-highlight">支援実績 250店舗</span> 超</li>
+                        <li><span class="authority-highlight">生成AI × 広告運用</span></li>
+                        <li><span class="authority-highlight">美容・ネイル・整体</span> 全業種実績</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <script src="script.js"></script>
 </body>
+
 </html>
