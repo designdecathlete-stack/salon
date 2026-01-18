@@ -6,14 +6,14 @@ let lastScroll = 0;
 
 window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
-    
+
     // スクロール時にヘッダーにクラスを追加
     if (currentScroll > 50) {
         header.classList.add('scrolled');
     } else {
         header.classList.remove('scrolled');
     }
-    
+
     lastScroll = currentScroll;
 });
 
@@ -47,7 +47,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         if (target) {
             const headerHeight = header.offsetHeight;
             const targetPosition = target.offsetTop - headerHeight;
-            
+
             window.scrollTo({
                 top: targetPosition,
                 behavior: 'smooth'
@@ -64,20 +64,20 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 const ctaButtons = document.querySelectorAll('.cta-button');
 
 ctaButtons.forEach(button => {
-    button.addEventListener('click', function(e) {
+    button.addEventListener('click', function (e) {
         const ripple = document.createElement('span');
         const rect = this.getBoundingClientRect();
         const size = Math.max(rect.width, rect.height);
         const x = e.clientX - rect.left - size / 2;
         const y = e.clientY - rect.top - size / 2;
-        
+
         ripple.style.width = ripple.style.height = size + 'px';
         ripple.style.left = x + 'px';
         ripple.style.top = y + 'px';
         ripple.classList.add('ripple');
-        
+
         this.appendChild(ripple);
-        
+
         setTimeout(() => {
             ripple.remove();
         }, 600);
@@ -128,8 +128,116 @@ if ('IntersectionObserver' in window) {
             }
         });
     });
-    
+
     document.querySelectorAll('img[data-src]').forEach(img => {
         imageObserver.observe(img);
+    });
+}
+
+// ========================================
+// REAL EXPERIENCE パララックス効果
+// ========================================
+
+// パララックス効果の実装
+function initParallax() {
+    const parallaxItems = document.querySelectorAll('.parallax-item');
+
+    if (parallaxItems.length === 0) return;
+
+    // スクロールイベントのスロットリング
+    let ticking = false;
+
+    function updateParallax() {
+        const windowHeight = window.innerHeight;
+
+        parallaxItems.forEach(item => {
+            const speed = parseFloat(item.getAttribute('data-parallax')) || 0;
+            const rect = item.getBoundingClientRect();
+
+            // ビューポート内にある場合のみ計算
+            if (rect.top < windowHeight && rect.bottom > 0) {
+                // 画面中央からの距離に基づいてオフセットを計算
+                const yPos = (rect.top - windowHeight / 2) * speed;
+                item.style.transform = `translateY(${yPos}px)`;
+            }
+        });
+
+        ticking = false;
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            window.requestAnimationFrame(updateParallax);
+            ticking = true;
+        }
+    }
+
+    // スクロールイベントリスナー
+    window.addEventListener('scroll', requestTick);
+
+    // 初回実行
+    updateParallax();
+}
+
+// エントランスアニメーション（フェードイン）
+function initEntranceAnimation() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+
+    // experience セクションの要素に適用
+    const experienceItems = document.querySelectorAll('.experience-item');
+    experienceItems.forEach(item => {
+        observer.observe(item);
+    });
+}
+
+// ページロード時に初期化
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+        initParallax();
+        initEntranceAnimation();
+        initFAQ();
+    });
+} else {
+    initParallax();
+    initEntranceAnimation();
+    initFAQ();
+}
+
+// ========================================
+// FAQ アコーディオン
+// ========================================
+function initFAQ() {
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+
+        question.addEventListener('click', () => {
+            // 現在のアイテムがアクティブかどうか確認
+            const isActive = item.classList.contains('active');
+
+            // 他のアイテムを全て閉じる（オプション：複数同時に開きたい場合はこの行をコメントアウト）
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item) {
+                    otherItem.classList.remove('active');
+                }
+            });
+
+            // 現在のアイテムをトグル
+            if (isActive) {
+                item.classList.remove('active');
+            } else {
+                item.classList.add('active');
+            }
+        });
     });
 }
