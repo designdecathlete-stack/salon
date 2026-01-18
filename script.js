@@ -205,11 +205,13 @@ if (document.readyState === 'loading') {
         initParallax();
         initEntranceAnimation();
         initFAQ();
+        initModal();
     });
 } else {
     initParallax();
     initEntranceAnimation();
     initFAQ();
+    initModal();
 }
 
 // ========================================
@@ -239,5 +241,44 @@ function initFAQ() {
                 item.classList.add('active');
             }
         });
+    });
+}
+
+// ========================================
+// モーダルウィンドウ制御
+// ========================================
+function initModal() {
+    const modal = document.getElementById('comingSoonModal');
+    const ctaTriggers = document.querySelectorAll('.cta-trigger');
+    const modalClose = modal.querySelector('.modal-close');
+    const modalOverlay = modal.querySelector('.modal-overlay');
+
+    // CTAボタンクリックでモーダルを開く
+    ctaTriggers.forEach(trigger => {
+        trigger.addEventListener('click', (e) => {
+            e.preventDefault();
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // スクロール防止
+        });
+    });
+
+    // 閉じるボタンでモーダルを閉じる
+    modalClose.addEventListener('click', () => {
+        modal.classList.remove('active');
+        document.body.style.overflow = ''; // スクロール復帰
+    });
+
+    // オーバーレイクリックでモーダルを閉じる
+    modalOverlay.addEventListener('click', () => {
+        modal.classList.remove('active');
+        document.body.style.overflow = ''; // スクロール復帰
+    });
+
+    // ESCキーでモーダルを閉じる
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            modal.classList.remove('active');
+            document.body.style.overflow = ''; // スクロール復帰
+        }
     });
 }

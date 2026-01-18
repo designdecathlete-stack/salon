@@ -2935,3 +2935,155 @@ body {
         line-height: 1.6;
     }
 }
+
+/* ========================================
+   モーダルウィンドウ
+   ======================================== */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(10, 10, 15, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    cursor: pointer;
+}
+
+.modal-content {
+    position: relative;
+    background: var(--color-white);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-2xl);
+    max-width: 500px;
+    width: 90%;
+    box-shadow: var(--shadow-lg);
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+    z-index: 1;
+}
+
+.modal.active .modal-content {
+    transform: scale(1);
+}
+
+.modal-close {
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--color-gray);
+    cursor: pointer;
+    transition: var(--transition);
+    line-height: 1;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-close:hover {
+    color: var(--color-dark);
+    transform: rotate(90deg);
+}
+
+.modal-body {
+    text-align: center;
+}
+
+.modal-icon {
+    font-size: 4rem;
+    margin-bottom: var(--spacing-md);
+    animation: bounce-in 0.6s ease-out;
+}
+
+@keyframes bounce-in {
+    0% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.modal-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-dark);
+}
+
+.modal-message {
+    color: var(--color-gray);
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+.modal-message p {
+    margin-bottom: var(--spacing-sm);
+}
+
+.modal-message p:last-child {
+    margin-bottom: 0;
+}
+
+.modal-highlight {
+    color: var(--color-dark);
+    font-weight: 600;
+}
+
+.modal-highlight strong {
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+}
+
+/* モバイル対応 */
+@media (max-width: 768px) {
+    .modal-content {
+        padding: var(--spacing-xl);
+        max-width: 90%;
+    }
+
+    .modal-icon {
+        font-size: 3rem;
+    }
+
+    .modal-title {
+        font-size: 1.5rem;
+    }
+
+    .modal-message {
+        font-size: 0.95rem;
+    }
+}

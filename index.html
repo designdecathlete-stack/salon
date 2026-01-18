@@ -32,8 +32,7 @@
                 </ul>
             </nav>
 
-            <a href="https://utage-system.com/p/9C2LMO49WyuG" class="cta-button cta-button--header" target="_blank"
-                rel="noopener">参加する</a>
+            <button class="cta-button cta-button--header cta-trigger">参加する</button>
 
             <button class="menu-toggle" id="menuToggle" aria-label="メニュー">
                 <span></span>
@@ -69,11 +68,10 @@
                 </p>
 
                 <div class="hero-cta">
-                    <a href="https://utage-system.com/p/9C2LMO49WyuG" class="cta-button cta-button--primary"
-                        target="_blank" rel="noopener">
+                    <button class="cta-button cta-button--primary cta-trigger">
                         <span class="cta-button-text">今すぐ参加する</span>
                         <span class="cta-button-icon">→</span>
-                    </a>
+                    </button>
                 </div>
 
                 <div class="hero-stats">
@@ -465,11 +463,10 @@
 
             <!-- CTA -->
             <div class="membership-cta">
-                <a href="https://utage-system.com/p/9C2LMO49WyuG" class="cta-button cta-button--membership"
-                    target="_blank" rel="noopener">
+                <button class="cta-button cta-button--membership cta-trigger">
                     <span class="cta-button-text">今すぐメンバーシップに参加する</span>
                     <span class="cta-button-icon">→</span>
-                </a>
+                </button>
                 <p class="cta-note">申し込みは1分で完了します</p>
             </div>
         </div>
@@ -665,11 +662,10 @@
                 リスクは月額2,500円だけ。合わなければ、いつでも辞められます。
             </p>
             <div class="final-cta-button-area">
-                <a href="https://utage-system.com/p/9C2LMO49WyuG" class="cta-button cta-button--final" target="_blank"
-                    rel="noopener">
+                <button class="cta-button cta-button--final cta-trigger">
                     <span class="cta-button-text">メンバーシップに参加する</span>
                     <span class="cta-button-icon">→</span>
-                </a>
+                </button>
                 <p class="final-cta-note">※ 入会手続きは1分で完了します</p>
             </div>
         </div>
@@ -689,6 +685,23 @@
             <p class="footer-copyright">© 2026 Salon no Tamari-ba All Rights Reserved.</p>
         </div>
     </footer>
+
+    <!-- モーダルウィンドウ -->
+    <div id="comingSoonModal" class="modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" aria-label="閉じる">&times;</button>
+            <div class="modal-body">
+                <div class="modal-icon">🚀</div>
+                <h3 class="modal-title">準備中</h3>
+                <div class="modal-message">
+                    <p>現在、入会の仕組みを準備中です。</p>
+                    <p class="modal-highlight">正式リリースは<strong>4月</strong>を予定しております。</p>
+                    <p>それまで楽しみにお待ちください。</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
