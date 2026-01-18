@@ -1779,16 +1779,15 @@ body {
         height: 300px;
     }
 
+    .experience-naming {
+        font-size: 1.4rem;
+    }
+
     /* モバイルではオーバーレイを常に表示 */
     .experience-overlay {
         transform: translateY(0);
         opacity: 1;
         padding: var(--spacing-md);
-    }
-
-    .experience-naming {
-        font-size: 0.7rem;
-        margin-bottom: 0.25rem;
     }
 
     .experience-copy {
