@@ -571,6 +571,440 @@ body {
     .hero-subtitle br {
         display: none;
     }
+
+    .hero-subtitle {
+        line-height: 1.7;
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .stat-number {
+        font-size: 1.8rem;
+    }
+
+    .stat-label {
+        font-size: 0.85rem;
+    }
+}
+
+/* ========================================
+   孤独な経営からの解放セクション
+   ======================================== */
+.liberation {
+    background: var(--color-white);
+    position: relative;
+}
+
+/* 共通コンテナ */
+.liberation-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+    position: relative;
+    z-index: 1;
+}
+
+/* ========================================
+   PAINセクション
+   ======================================== */
+.liberation-pain {
+    padding: var(--spacing-3xl) var(--spacing-lg);
+    padding-top: calc(var(--spacing-3xl) + var(--spacing-xl));
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 背景グラデーション */
+.liberation-pain::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg,
+            rgba(108, 56, 243, 0.03) 0%,
+            rgba(143, 52, 218, 0.05) 25%,
+            rgba(247, 8, 88, 0.03) 50%,
+            rgba(254, 167, 2, 0.05) 75%,
+            rgba(255, 176, 0, 0.03) 100%);
+    z-index: 0;
+    filter: blur(60px);
+}
+
+/* 英語サブタイトル */
+.liberation-subtitle {
+    font-family: var(--font-secondary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: var(--spacing-sm);
+}
+
+.liberation-title {
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1.75;
+    color: var(--color-dark);
+    margin-bottom: var(--spacing-3xl);
+    letter-spacing: 0.02em;
+}
+
+/* 悩みのカードグリッド */
+.pain-bubbles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* グラスモーフィズムカード */
+.pain-bubble {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-xl);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+    transition: var(--transition);
+    position: relative;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+}
+
+.pain-bubble::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: var(--border-radius-lg);
+    padding: 1px;
+    background: var(--gradient-main);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.pain-bubble:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(108, 56, 243, 0.12);
+}
+
+.pain-bubble:hover::before {
+    opacity: 1;
+}
+
+/* 線画アイコン */
+.bubble-icon {
+    width: 56px;
+    height: 56px;
+    position: relative;
+    flex-shrink: 0;
+    margin-bottom: var(--spacing-xs);
+}
+
+/* グラフアイコン (Money & Future) */
+.bubble-icon--graph::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 56 56' fill='none' stroke='%238F34DA' stroke-width='1.5'%3E%3Cpolyline points='10,40 18,30 28,35 38,20 46,25' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cline x1='10' y1='12' x2='10' y2='44' stroke-linecap='round'/%3E%3Cline x1='8' y1='44' x2='48' y2='44' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* 握手アイコン (Human Relations) */
+.bubble-icon--hands::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 56 56' fill='none' stroke='%23A25DE9' stroke-width='1.5'%3E%3Cpath d='M18,28 Q28,18 38,28 M38,28 Q28,38 18,28' stroke-linecap='round'/%3E%3Ccircle cx='18' cy='28' r='3' fill='none'/%3E%3Ccircle cx='38' cy='28' r='3' fill='none'/%3E%3Cpath d='M15,25 L12,22 M15,31 L12,34' stroke-linecap='round'/%3E%3Cpath d='M41,25 L44,22 M41,31 L44,34' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* コーヒーカップアイコン (Isolation) */
+.bubble-icon--cup::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 56 56' fill='none' stroke='%23B12BAD' stroke-width='1.5'%3E%3Cpath d='M12,20 L12,35 Q12,40 17,40 L31,40 Q36,40 36,35 L36,20 Z' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M36,26 L40,26 Q44,26 44,30 Q44,34 40,34 L36,34' stroke-linecap='round'/%3E%3Cline x1='16' y1='14' x2='16' y2='18' stroke-linecap='round'/%3E%3Cline x1='24' y1='12' x2='24' y2='18' stroke-linecap='round'/%3E%3Cline x1='32' y1='14' x2='32' y2='18' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* 書類アイコン (Overwhelmed) */
+.bubble-icon--papers::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 56 56' fill='none' stroke='%23F70858' stroke-width='1.5'%3E%3Crect x='14' y='10' width='20' height='28' rx='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Crect x='18' y='14' width='16' height='24' rx='2' stroke-linecap='round' stroke-linejoin='round' opacity='0.6'/%3E%3Crect x='22' y='18' width='12' height='20' rx='2' stroke-linecap='round' stroke-linejoin='round' opacity='0.3'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* カテゴリ見出し */
+.bubble-category {
+    font-family: var(--font-secondary);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-gray);
+    margin: 0;
+}
+
+.bubble-text {
+    font-size: 0.95rem;
+    line-height: 1.85;
+    color: var(--color-dark);
+    text-align: center;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+}
+
+/* ========================================
+   CONCEPTセクション
+   ======================================== */
+.liberation-concept {
+    padding: var(--spacing-3xl) var(--spacing-lg);
+    background: linear-gradient(135deg, #FEFDFE 0%, #F5F5F7 100%);
+    text-align: center;
+}
+
+/* 英語サブタイトル */
+.concept-subtitle {
+    font-family: var(--font-secondary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: var(--spacing-sm);
+}
+
+.concept-catchphrase {
+    font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+    font-weight: 600;
+    line-height: 1.7;
+    color: var(--color-dark);
+    margin-bottom: var(--spacing-xl);
+    letter-spacing: 0.01em;
+}
+
+.highlight-text {
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 900;
+}
+
+.concept-body {
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+.concept-body p {
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    line-height: 1.9;
+    color: var(--color-gray);
+    margin-bottom: var(--spacing-lg);
+    letter-spacing: 0.01em;
+}
+
+.concept-emphasis {
+    font-size: clamp(1.1rem, 2.2vw, 1.3rem);
+    font-weight: 600;
+    color: var(--color-dark);
+    margin-top: var(--spacing-xl);
+    line-height: 1.9;
+}
+
+.real-solution {
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 900;
+    font-size: 1.15em;
+}
+
+/* ========================================
+   MARQUEEセクション（写真スクロール）
+   ======================================== */
+.liberation-marquee {
+    padding: var(--spacing-3xl) 0;
+    background: var(--color-dark);
+    overflow: hidden;
+    position: relative;
+}
+
+.marquee-track {
+    display: flex;
+    width: fit-content;
+    animation: marqueeScroll 40s linear infinite;
+}
+
+@keyframes marqueeScroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.marquee-content {
+    display: flex;
+    gap: var(--spacing-lg);
+    flex-shrink: 0;
+}
+
+.marquee-photo {
+    width: 400px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.marquee-photo:hover {
+    transform: scale(1.05);
+}
+
+/* ========================================
+   レスポンシブ対応 - Liberation
+   ======================================== */
+
+/* タブレット */
+@media (max-width: 1024px) {
+    .liberation-pain {
+        padding: var(--spacing-2xl) var(--spacing-lg);
+        padding-top: calc(var(--spacing-2xl) + var(--spacing-lg));
+    }
+
+    .pain-bubbles {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: var(--spacing-md);
+    }
+
+    .marquee-photo {
+        width: 350px;
+        height: 260px;
+    }
+}
+
+/* モバイル */
+@media (max-width: 768px) {
+    .liberation-pain {
+        padding: var(--spacing-2xl) var(--spacing-md);
+    }
+
+    .liberation-title {
+        font-size: clamp(1.5rem, 5vw, 2rem);
+        margin-bottom: var(--spacing-2xl);
+    }
+
+    .pain-bubbles {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
+    }
+
+    .pain-bubble {
+        padding: var(--spacing-md);
+        gap: var(--spacing-sm);
+    }
+
+    .bubble-icon {
+        font-size: 1.5rem;
+    }
+
+    .bubble-text {
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+
+    .liberation-concept {
+        padding: var(--spacing-2xl) var(--spacing-md);
+    }
+
+    .concept-catchphrase {
+        font-size: clamp(1.2rem, 4vw, 1.8rem);
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .concept-body p {
+        font-size: 0.95rem;
+        line-height: 1.8;
+    }
+
+    .concept-emphasis {
+        font-size: 1rem;
+    }
+
+    .liberation-marquee {
+        padding: var(--spacing-2xl) 0;
+    }
+
+    .marquee-photo {
+        width: 280px;
+        height: 210px;
+    }
+
+    .marquee-content {
+        gap: var(--spacing-md);
+    }
+}
+
+@media (max-width: 480px) {
+    .liberation-title br {
+        display: block;
+    }
+
+    .concept-catchphrase br {
+        display: block;
+    }
+
+    .concept-body p br {
+        display: none;
+    }
+
+    .marquee-photo {
+        width: 240px;
+        height: 180px;
+    }
+
+    .marquee-content {
+        gap: var(--spacing-sm);
+    }
 }
 
 /* ========================================
@@ -724,7 +1158,7 @@ body {
 
 .member-catch {
     font-size: 0.85rem;
-    line-height: 1.5;
+    line-height: 1.6;
     color: rgba(255, 255, 255, 0.95);
     font-weight: 400;
 }
@@ -844,14 +1278,23 @@ body {
 
     .team-card {
         width: 260px;
+        min-height: 480px;
+        display: flex;
+        flex-direction: column;
     }
 
     .team-card-image {
         height: 260px;
+        flex-shrink: 0;
     }
 
     .member-name {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
+    }
+
+    .member-catch {
+        font-size: 0.8rem;
+        line-height: 1.4;
     }
 
     /* モバイルでは常に実績を表示 */
@@ -859,16 +1302,46 @@ body {
         position: relative;
         transform: translateY(0);
         background: var(--color-dark);
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: var(--spacing-md) var(--spacing-md) var(--spacing-lg);
+    }
+
+    .member-authority li {
+        font-size: 0.75rem;
+        line-height: 1.6;
+        padding-left: var(--spacing-sm);
     }
 }
 
 @media (max-width: 480px) {
     .team-card {
         width: 240px;
+        min-height: 450px;
     }
 
     .team-card-image {
-        height: 240px;
+        height: 220px;
+    }
+
+    .member-name {
+        font-size: 1.1rem;
+    }
+
+    .member-catch {
+        font-size: 0.75rem;
+        line-height: 1.4;
+    }
+
+    .team-card-details {
+        padding: var(--spacing-sm) var(--spacing-sm) var(--spacing-md);
+    }
+
+    .member-authority li {
+        font-size: 0.7rem;
+        line-height: 1.5;
     }
 }
 
@@ -1115,6 +1588,23 @@ body {
     .experience-overlay {
         transform: translateY(0);
         opacity: 1;
+        padding: var(--spacing-md);
+    }
+
+    .experience-naming {
+        font-size: 0.7rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .experience-copy {
+        font-size: 0.95rem;
+        margin-bottom: 0.25rem;
+        line-height: 1.3;
+    }
+
+    .experience-text {
+        font-size: 0.8rem;
+        line-height: 1.5;
     }
 
     .experience-tag {
@@ -1127,19 +1617,25 @@ body {
 
 @media (max-width: 480px) {
     .experience-card {
-        height: 250px;
-    }
-
-    .experience-copy {
-        font-size: 1rem;
-    }
-
-    .experience-text {
-        font-size: 0.75rem;
+        height: 280px;
     }
 
     .experience-overlay {
-        padding: var(--spacing-sm);
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+
+    .experience-naming {
+        font-size: 0.65rem;
+    }
+
+    .experience-copy {
+        font-size: 0.85rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .experience-text {
+        font-size: 0.7rem;
+        line-height: 1.4;
     }
 }
 
@@ -1955,18 +2451,30 @@ body {
 
     .faq-answer p {
         font-size: 0.9rem;
+        line-height: 1.7;
     }
 }
 
 @media (max-width: 480px) {
+    .faq-question {
+        padding: var(--spacing-sm) var(--spacing-md);
+        gap: var(--spacing-sm);
+    }
+
     .faq-q-text {
         font-size: 0.9rem;
+        line-height: 1.5;
     }
 
     .faq-icon {
         width: 24px;
         height: 24px;
         font-size: 1.2rem;
+    }
+
+    .faq-answer p {
+        font-size: 0.85rem;
+        line-height: 1.6;
     }
 }
 
@@ -2171,6 +2679,16 @@ body {
 
     .final-cta-subtitle {
         font-size: 0.95rem;
+        line-height: 1.7;
+    }
+
+    .final-cta-subtitle br {
+        display: none;
+    }
+
+    .cta-button--final {
+        padding: 1.1rem 1.8rem;
+        font-size: 0.95rem;
     }
 
     .footer-nav {
@@ -2180,5 +2698,15 @@ body {
 
     .footer-divider {
         display: none;
+    }
+
+    .footer-link {
+        font-size: 0.8rem;
+        line-height: 1.5;
+    }
+
+    .footer-copyright {
+        font-size: 0.7rem;
+        margin-top: var(--spacing-xs);
     }
 }
