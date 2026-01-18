@@ -691,6 +691,21 @@ body {
     .hero {
         padding: var(--spacing-2xl) var(--spacing-md);
         padding-top: calc(var(--spacing-2xl) + 80px);
+        min-height: 100vh;
+        padding-bottom: calc(var(--spacing-3xl) + 60px);
+    }
+
+    .hero-title {
+        font-size: clamp(2.2rem, 8vw, 5rem);
+    }
+
+    .hero-stats {
+        gap: var(--spacing-md);
+        margin-bottom: var(--spacing-2xl);
+    }
+
+    .scroll-indicator {
+        bottom: var(--spacing-md);
     }
 
     .hero-cta {
@@ -703,10 +718,6 @@ body {
         width: 100%;
         max-width: 300px;
         justify-content: center;
-    }
-
-    .hero-stats {
-        gap: var(--spacing-md);
     }
 
     .stat-number {
@@ -733,6 +744,7 @@ body {
         height: 100px;
     }
 }
+
 
 @media (max-width: 480px) {
     .logo-text {
@@ -1661,7 +1673,7 @@ body {
 
 .experience-naming {
     font-family: var(--font-secondary);
-    font-size: 0.8rem;
+    font-size: 1rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.15em;
@@ -1671,6 +1683,10 @@ body {
     background-clip: text;
     display: block;
     margin-bottom: var(--spacing-xs);
+    text-shadow: 0 2px 10px rgba(143, 52, 218, 0.5),
+        0 0 20px rgba(143, 52, 218, 0.3),
+        0 0 30px rgba(247, 8, 88, 0.2);
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
 }
 
 .experience-copy {
