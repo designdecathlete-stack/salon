@@ -748,8 +748,8 @@ body {
         padding-top: calc(var(--spacing-md) + 70px);
         min-height: 100vh;
         min-height: 100svh;
-        padding-bottom: 150px;
-        /* マーキー（120px + シャドウ/余白分）のスペースを確保 */
+        padding-bottom: 180px;
+        /* マーキー（150px + シャドウ/余白分）のスペースを確保 */
     }
 
     .hero-title {
@@ -789,12 +789,13 @@ body {
     }
 
     .hero-marquee {
-        height: 120px;
+        height: 160px;
+        padding-bottom: 10px;
     }
 
     .marquee-photo--hero {
-        width: 160px;
-        height: 100px;
+        width: 180px;
+        height: 120px;
     }
 
     .gradient-orb {
