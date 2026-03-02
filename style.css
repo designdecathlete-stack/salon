@@ -257,11 +257,14 @@ body {
 .hero {
     position: relative;
     min-height: 100vh;
+    min-height: 100svh;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: var(--spacing-3xl) var(--spacing-lg);
-    padding-top: calc(var(--spacing-3xl) + 80px);
+    padding: var(--spacing-2xl) var(--spacing-lg);
+    padding-top: calc(var(--spacing-2xl) + 80px);
+    padding-bottom: 260px;
+    /* マーキー表示領域を確保 */
     overflow: hidden;
 }
 
@@ -636,7 +639,59 @@ body {
     }
 }
 
+/* ヒーロー写真マーキー */
+.hero-marquee {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 240px;
+    display: flex;
+    align-items: center;
+    z-index: 1;
+    overflow: hidden;
+    opacity: 0;
+    animation: heroMarqueeFadeIn 1s ease-out forwards;
+    animation-delay: 1s;
+    /* テキストの表示後に登場させる */
+}
 
+@keyframes heroMarqueeFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        /* はっきり見えるように不透明度を1に */
+        transform: translateY(0);
+    }
+}
+
+.hero-marquee-track {
+    display: flex;
+    width: fit-content;
+    animation: marqueeScroll 60s linear infinite;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: 30px 0;
+    /* 写真とその影が隠れないように余白を追加 */
+}
+
+.marquee-photo--hero {
+    width: 240px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.marquee-photo--hero:hover {
+    opacity: 1;
+    transform: scale(1.02);
+}
 
 
 /* ========================================
@@ -689,19 +744,28 @@ body {
     }
 
     .hero {
-        padding: var(--spacing-2xl) var(--spacing-md);
-        padding-top: calc(var(--spacing-2xl) + 80px);
+        padding: var(--spacing-md) var(--spacing-md);
+        padding-top: calc(var(--spacing-md) + 70px);
         min-height: 100vh;
-        padding-bottom: calc(var(--spacing-3xl) + 60px);
+        min-height: 100svh;
+        padding-bottom: 150px;
+        /* マーキー（120px + シャドウ/余白分）のスペースを確保 */
     }
 
     .hero-title {
-        font-size: clamp(2.2rem, 8vw, 5rem);
+        font-size: clamp(1.8rem, 7vw, 3.5rem);
+        margin-bottom: var(--spacing-xs);
+    }
+
+    .hero-subtitle {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: var(--spacing-sm);
     }
 
     .hero-stats {
-        gap: var(--spacing-md);
-        margin-bottom: var(--spacing-2xl);
+        gap: var(--spacing-sm);
+        margin-bottom: var(--spacing-sm);
     }
 
     .scroll-indicator {
@@ -722,6 +786,15 @@ body {
 
     .stat-number {
         font-size: 2rem;
+    }
+
+    .hero-marquee {
+        height: 120px;
+    }
+
+    .marquee-photo--hero {
+        width: 160px;
+        height: 100px;
     }
 
     .gradient-orb {
@@ -3026,9 +3099,11 @@ body {
     0% {
         transform: scale(0);
     }
+
     50% {
         transform: scale(1.1);
     }
+
     100% {
         transform: scale(1);
     }
